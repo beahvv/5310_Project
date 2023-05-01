@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Rate Ticket</title>
+    <link rel="stylesheet" href="../../static/css/sidebar.css">
+</head>
+
+<body>
+    <!-- The Head Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">SuperTravel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <!-- End of The Head Bar -->
+
+    <!--  current page’s location -->
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="sidenav">
+                    <a href="/custHome/ticketSrh">Ticket Search</a>
+                    <a href="/custHome/stsSrh">Status Search</a>
+                    <a href="/custHome/hotelSrh">Hotel Search</a>
+                    <a href="/custHome/carSrh">Car Search</a>
+                    <a href="/custHome/futureF">Future Flights</a>
+                    <a href="/custHome/futureB">Future Bookings</a>
+                    <a href="/custHome/futureR">Future Rentals</a>
+                    <a href="/custHome/pastF">Past Flights</a>
+                    <a href="/custHome/pastB">Past Bookings</a>
+                    <a href="/custHome/pastR">Past Rentals</a>
+                    <a href="/custHome/spendingF">View Flight Spending</a>
+                    <a href="/custHome/spendingB">View Hotel Spending</a>
+                    <a href="/custHome/spendingR">View Rental Spending</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="/custHome">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="custHome/ticketSrh">Ticket Search</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Ticket Rating
+                        </li>
+                    </ol>
+                </nav>
+                <br>
+                <nav class="navbar navbar-light bg-light">
+                    <a class="navbar-brand mx-auto">Rate Flight</a>
+                </nav>
+                <br>
+                {% if error %}
+                <p class="error"><strong>Error:</strong> {{error}}</p>
+                {% endif %}
+                <form action="/custHome/regRate" method="POST">
+                    <div id="unchange">
+                    </div>
+                    <div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="cust_email" id="cust_email" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Airline</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="airline" id="airline" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Departure</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="depart_date" id="depart_date" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-3 col-form-label">Flight</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="flight_num" id="flight_num" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Rating</label>
+                            <div class="col-9">
+                                <select class="form-control" name="rating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label" for="exampleFormControlTextarea1">Comments</label>
+                            <div class="col-9">
+                                <textarea class="form-control" name="comments" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End of current page’s location -->
+
+        <br>
+
+    </div>
+
+
+
+
+
+    <!-- JavaScript files -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-gRC4eoaRyQ8xv2X6Mnf+eOIrtON3wId3dAkwO0HQX26OrFBoLpjX/XWOJacSiZhL"
+        crossorigin="anonymous"></script> -->
+    <script>
+
+
+    </script>
+    <script>
+        var info_fla = JSON.parse('{{info | tojson}}');
+        console.log(info_fla);
+        var cust_email = document.getElementById("cust_email");
+        cust_email.value = "{{email}}";
+
+        var airline = document.getElementById('airline');
+        airline.value = info_fla['airline'];
+
+        var depart = document.getElementById('depart_date');
+        depart.value = info_fla['depart_date'];
+
+        var flight = document.getElementById("flight_num");
+        flight.value = info_fla['flight_num'];
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Customer Ticket Purchase</title>
+    <link rel="stylesheet" href="../../static/css/sidebar.css">
+</head>
+
+<body>
+    <!-- The Head Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">SuperTravel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <!-- End of The Head Bar -->
+
+    <!--  current page’s location -->
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="sidenav">
+                    <a href="/custHome/ticketSrh">Ticket Search</a>
+                    <a href="/custHome/stsSrh">Status Search</a>
+                    <a href="/custHome/hotelSrh">Hotel Search</a>
+                    <a href="/custHome/carSrh">Car Search</a>
+                    <a href="/custHome/futureF">Future Flights</a>
+                    <a href="/custHome/futureB">Future Bookings</a>
+                    <a href="/custHome/futureR">Future Rentals</a>
+                    <a href="/custHome/pastF">Past Flights</a>
+                    <a href="/custHome/pastB">Past Bookings</a>
+                    <a href="/custHome/pastR">Past Rentals</a>
+                    <a href="/custHome/spendingF">View Flight Spending</a>
+                    <a href="/custHome/spendingB">View Hotel Spending</a>
+                    <a href="/custHome/spendingR">View Rental Spending</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="/custHome">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="custHome/hotelSrh">Hotel Search</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Hotel Booking
+                        </li>
+                    </ol>
+                </nav>
+                <br>
+                <nav class="navbar navbar-light bg-light">
+                    <a class="navbar-brand mx-auto">Confirmation Portal</a>
+                </nav>
+                <br>
+                <form action="/custHome/placeOrderHotel" method="POST">
+                    <div id="unchange"></div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Check-in Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" name="check_in_date" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Check-out Date</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" name="check_out_date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Cardholder's Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="card_holder" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Card Number</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="card_number" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Expiration Date</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="MM/YYYY" name="card_expiration" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">CVV</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control"  name="CVV_code" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleFormControlSelect1" class="col-3 col-form-label">Card Type</label>
+                        <div class="col-9">
+                            <select class="form-control" name="card_type">
+                                <option>Credit</option>
+                                <option>Debit</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!-- End of current page’s location -->
+        <br>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+    <!-- JavaScript files -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="../../static/js/communicate.js"></script>
+    <script>
+        var info_fla = JSON.parse('{{info | tojson}}');
+        var email = "{{email}}";
+        keys = Object.keys(info_fla);
+        values = Object.values(info_fla);
+        var left = document.getElementById("unchange");
+        const outer = document.createElement("div");
+        outer.className = "form-group row";
+
+        const label = document.createElement("label");
+        label.className = "col-3 col-form-label";
+        label.innerHTML = "Email";
+
+        const inner = document.createElement("div");
+        inner.className = "col-9";
+        const input = document.createElement("input");
+        input.name = "cust_email";
+        input.className = "form-control";
+        input.type = "text";
+        input.readOnly = true;
+        input.value = email;
+        inner.appendChild(input);
+        outer.appendChild(label);
+        outer.appendChild(inner);
+        left.appendChild(outer);
+        for (let i = 0; i < keys.length; i++) {
+            const outer = document.createElement("div");
+            outer.className = "form-group row";
+
+            const label = document.createElement("label");
+            label.className = "col-3 col-form-label";
+            label.innerHTML = keys[i];
+
+            if (label.innerHTML == "hotel_name") {
+                label.innerHTML = "Name";
+            } else if (label.innerHTML == "hotel_stars") {
+                label.innerHTML = "Star";
+            } else if (label.innerHTML == "room_id") {
+                label.innerHTML = "Room";
+            } else if (label.innerHTML == "rate_per_night") {
+                label.innerHTML = "Price";
+            }
+            const inner = document.createElement("div");
+            inner.className = "col-9";
+            const input = document.createElement("input");
+            input.className = "form-control";
+            input.name = keys[i]
+            input.type = "text";
+            input.readOnly = true;
+            input.value = values[i];
+            inner.appendChild(input);
+            outer.appendChild(label);
+            outer.appendChild(inner);
+            left.appendChild(outer);
+        }
+    </script>
+</body>
+
+</html>
