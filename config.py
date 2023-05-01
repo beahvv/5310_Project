@@ -1,0 +1,5 @@
+postgresql_host = "localhost"
+postgresql_port = "5432"
+postgresql_database = "5310_Project"
+postgresql_user = "postgres"
+postgresql_password = "123"
